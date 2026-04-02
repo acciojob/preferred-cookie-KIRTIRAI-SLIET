@@ -4,12 +4,10 @@
   const fontSizeInput = document.getElementById("fontsize");
   const fontColorInput = document.getElementById("fontcolor");
 
-  // Helper: set cookie
   function setCookie(name, value) {
     document.cookie = `${name}=${value}; path=/`;
   }
 
-  // Helper: get cookie
   function getCookie(name) {
     const cookies = document.cookie.split("; ");
     for (let c of cookies) {
@@ -19,7 +17,6 @@
     return null;
   }
 
-  // Apply styles from values
   function applyStyles(size, color) {
     if (size) {
       document.documentElement.style.setProperty("--fontsize", size + "px");
@@ -29,7 +26,6 @@
     }
   }
 
-  // On form submit → save cookies
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -42,7 +38,6 @@
     applyStyles(size, color);
   });
 
-  // On page load → read cookies
   window.addEventListener("DOMContentLoaded", () => {
     const savedSize = getCookie("fontsize");
     const savedColor = getCookie("fontcolor");
